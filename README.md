@@ -40,9 +40,15 @@ The deployable HTML, CSS and backend remain alongside the generated JavaScript. 
 
 ## Deployment status
 
-The secure subfolder application and form improvements were verified on 16 October 2026. The latest login-default change is prepared and tested locally; server publication awaits the Windows connection. After publication, the default document is login.html, successful sign-in opens index.html, and unauthenticated dashboard access returns to login.
+Updated 23 October 2026. The blank return reason change is published to the existing Windows IIS application: **Request changes** accepts an empty decision reason and retains the approver's identity and timestamp. Rejection still requires a reason. Role checks, version checks and the 4,000-character comment limit remain enforced. Existing accounts, store records and attachments were not modified.
 
-The `app` directory also retains the original Sites/Cloudflare implementation. It uses a different authentication and storage stack and is not the Windows deployment entry point.
+Validation: TypeScript check and Windows frontend build passed; request handler tests covered blank/whitespace/commented returns, audit identity/date, role restrictions, stale versions, comment length and rejection validation. The server compiled the updated C# handler and verified published file contents. The live JavaScript checksum matches the built bundle; anonymous API access returns JSON 401.
+
+The archive also includes prepared login-default source from the previous backup. Its full server deployment has not been verified; the 23 October publication updated the approval handler, frontend bundle and frontend cache version only.
+
+CAM zero-value calculations were checked across all five years: CAM and CAM deposits remain zero. CAM escalation intervals must remain at least one year under the current validation rule.
+
+The `app` directory retains the original Sites/Cloudflare implementation. It uses different authentication and storage and is not the Windows deployment entry point. The blank return reason source update is included there too; it has not been published to the older chatgpt.site demo.
 
 ## Repository contents
 
