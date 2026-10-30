@@ -40,15 +40,19 @@ The deployable HTML, CSS and backend remain alongside the generated JavaScript. 
 
 ## Deployment status
 
-Updated 23 October 2026. The blank return reason change is published to the existing Windows IIS application: **Request changes** accepts an empty decision reason and retains the approver's identity and timestamp. Rejection still requires a reason. Role checks, version checks and the 4,000-character comment limit remain enforced. Existing accounts, store records and attachments were not modified.
+Source backup updated 30 October 2026. Live Windows application: https://mis-sweetdreams.in/Storeapprovalform/.
 
-Validation: TypeScript check and Windows frontend build passed; request handler tests covered blank/whitespace/commented returns, audit identity/date, role restrictions, stale versions, comment length and rejection validation. The server compiled the updated C# handler and verified published file contents. The live JavaScript checksum matches the built bundle; anonymous API access returns JSON 401.
+Published changes included in this backup:
 
-The archive also includes prepared login-default source from the previous backup. Its full server deployment has not been verified; the 23 October publication updated the approval handler, frontend bundle and frontend cache version only.
+- 23 October: **Request changes** accepts a blank reason and retains the approver identity/date. Rejection still requires a reason.
+- 24 October: Optional five-year **total monthly minimum rent and CAM amounts** support flat increases. Blank years use the existing percentage calculation; zero is allowed. Payable rent remains the higher of minimum rent and revenue share. Year 1 minimum rent and CAM determine deposits. Projections, CSV reports and shared JPG workings use these amounts.
+- 27 October: Optional free-text **Store Category**, **Facade Type** and **Notice period** fields are saved with proposals and included in reports and shared workings. Existing proposals remain compatible.
 
-CAM zero-value calculations were checked across all five years: CAM and CAM deposits remain zero. CAM escalation intervals must remain at least one year under the current validation rule.
+Validation completed for the published changes: Windows frontend builds and TypeScript checks, legacy-form compatibility, manual/automatic lease schedules, zero CAM, deposits, unchanged franchisee calculations, metadata persistence/validation, report-column alignment, C# handler compilation, live bundle checksums and protected API access. Existing accounts, stores and attachments were preserved.
 
-The `app` directory retains the original Sites/Cloudflare implementation. It uses different authentication and storage and is not the Windows deployment entry point. The blank return reason source update is included there too; it has not been published to the older chatgpt.site demo.
+The archive also retains prepared login-default source from the previous backup. Full publication of that earlier login-default change has not been verified; recent publications updated the application handler, frontend bundle and asset cache version only.
+
+The `app` directory retains the original Sites/Cloudflare implementation with corresponding source changes. It uses different authentication and storage and is not the Windows deployment entry point. The older chatgpt.site demo has not received these recent publications.
 
 ## Repository contents
 
